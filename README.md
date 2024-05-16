@@ -1,0 +1,3 @@
+# Anki Note Types Tracker
+
+This repository is dedicated to tracking the current note types I use in Anki. Currently, I am using the "Eminent Note Type Vol2" which can be found [here](https://cademcniven.com/projects/notetype2/). This note type has been edited to work within the framework advised by Livakivi. You can find more about this framework in this [video](https://www.youtube.com/watch?v=QBcQJESGQvc&t=1125s).

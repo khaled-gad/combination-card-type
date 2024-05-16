@@ -1,0 +1,19 @@
+
+	<!---------------- If you want pitch coloring on the front, remove the "white" class below ---------------->
+	<br>
+	<br>
+
+	<div id="sentence" class="hidden">
+		{{edit:Sentence}}
+	</div>
+
+
+<script>
+    var sentence = document.getElementById("sentence");
+    if (sentence) {
+        sentence.innerHTML = sentence.innerHTML.replace("{{Expression}}", '<span class="boldy">{{Expression}}</span>');
+    }
+</script>
+
+
+<script src ="_kanjiHover.js"></script>

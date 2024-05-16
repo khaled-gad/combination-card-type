@@ -1,0 +1,270 @@
+/* Open Sans Light is the font for english text, Takao P Mincho is the font for japanese text */
+@font-face { font-family: OpenSansLight; src: url('_OpenSans-Light.ttf'); }
+@font-face { font-family: TakaoPMincho; src: url('_TakaoPMincho.ttf'); }
+
+@font-face { 
+	font-family: myfont; 
+	src: url('_BIZ-UDMinchoM.ttc');
+	unicode-range: U+3000-30FF, U+FF00-FFEF, U+4E00-9FAF;
+	size-adjust: 130%;
+}
+
+
+/****** colors ******/
+:root {
+	--red: #fd5c5c;
+	--blue: #89daff;
+	--orange: #fca311;
+	--green: #4e937a;
+	--purple: #afa2ff;
+
+text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	quotes: "\201c""\201d""\2018""\2019";
+
+}
+
+/****** card css ******/
+
+body, body.nightMode {
+ 	  font-family: myfont, BIZ UDMincho;
+    /* font-family: OpenSansLight, TakaoPMincho; */
+    text-align: center;
+    color: white;
+	background: rgb(43, 43, 43);
+	font-size: 16px;
+}
+
+img {
+ 	/* width: auto; */
+	/* height: auto; */
+ 	max-width: 600px;
+ 	max-height: 450px;
+	border-radius: 0px;
+	box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.8);
+}
+
+rt{
+font-size: 1.6rem;
+}
+
+a {
+  	color: inherit !important;
+}
+
+b, strong {
+	color: #ffb11b;
+	font-weight: normal;
+}
+
+#kanjiHover {
+ 	font-size: 2rem;
+}
+
+#pitchGraph {
+	font-size: 1.7rem;
+}
+
+#word {
+	font-size: 3rem;
+}
+#sentence {
+font-size:40px;
+}
+
+.highlight, .nightMode .highlight {
+	color: var(--red);
+	background-color: #171717;
+	padding: 0 3px;
+	margin: 0 3px;
+	border-radius: 5px;
+
+
+
+}
+.boldy {
+	background-color: #171717;
+	padding: 0 3px;
+	margin: 0 3px;
+	border-radius: 5px;
+font-weight: 1000;
+
+}
+
+
+.audio {
+	position: absolute;
+}
+
+.sentenceAudio {
+	margin-left: 50px;
+}
+
+.audio circle {
+	display: none;
+}
+
+.playImage path {
+	fill: black !important;
+}
+
+/* changes the cursor to look like a hand when you hover a kanji with kanjihover enabled */
+.kanjiHoverTarget {
+	cursor: pointer;
+}
+
+#freq {
+  margin: 8px;
+	margin-top: 1rem;
+	left: 0px;
+	right: 0px;
+ 	display: inline-block;
+	border: 1px solid white;
+	border-radius: 5px;
+	padding: 4px;
+ 	font-size: 0.9rem;
+}
+
+/* yomichan exports a lot of things as lists (pitch, dictionaries, freq lists), so this strips the formmating so it looks reasonable */
+ul, ol {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+	display: inline-block;
+}
+
+li {
+	text-align: center
+}
+
+/* changes the furigana pitch graphs to be red and spaced a bit nicer */
+#word span {
+	border-color: var(--red) !important;
+	padding-top: 6px;
+}
+
+/* if there's more than one item in the reading field, only show the first one */
+#word li:not(:first-child){
+	display: none;
+}
+
+#pitchGraph li:not(:first-child){
+	display: none;
+}
+
+/****** pitch graphs ******/
+#pitchGraph {
+	font-size: 0; /* we want to hide "no pitch accent data found" etc */
+	color: var(--background);
+	margin-top: 1rem;
+}
+
+#pitchGraph svg{
+	font-size: 1.7rem;
+}
+
+circle {
+	fill:#fff !important;
+	stroke:#fff !important;
+	stroke-width:5 !important;
+}
+
+/*path {
+	fill:none !important;
+	stroke:#fff !important;
+	stroke-width:5 !important;
+}
+*/
+
+#pitchGraph li:nth-child(n+3) {
+	display: none;
+}
+
+/****** pitch accent colors ******/
+
+.heiban::before {
+	content: "";
+	display: inline-block;
+	height: 0.7ch;
+	width: 0.7ch;
+	margin-right: 10px;
+	margin-bottom: 0.3ch;
+	background-color: var(--blue);
+}
+
+.atamadaka::before {
+	content: "";
+	display: inline-block;
+	height: 0.7ch;
+	width: 0.7ch;
+	margin-right: 10px;
+	margin-bottom: 0.3ch;
+	background-color: var(--red);
+}
+
+.nakadaka::before {
+	content: "";
+	display: inline-block;
+	height: 0.7ch;
+	width: 0.7ch;
+	margin-right: 10px;
+	margin-bottom: 0.3ch;
+	background-color: var(--orange);
+}
+
+.odaka::before {
+	content: "";
+	display: inline-block;
+	height: 0.7ch;
+	width: 0.7ch;
+	margin-right: 10px;
+	margin-bottom: 0.3ch;
+	background-color: var(--green);
+}
+
+.kifuku::before {
+	content: "";
+	display: inline-block;
+	height: 0.7ch;
+	width: 0.7ch;
+	margin-right: 10px;
+	margin-bottom: 0.3ch;
+	background-color: var(--purple);
+}
+
+/****** mobile styling ******/
+
+.mobile .card img {
+  	max-width: 100%;
+	max-height: none;
+}
+
+.mobile .card {
+  	margin: 0.5em 0em;
+}
+
+.mobile #content {
+  	margin: 0.5em 0em;
+}
+
+
+
+/* Hover to reveal subtitle line
+:hover {
+	transition: 0.4s; /* Global Transition 
+	cursor: auto;
+}
+*/
+
+.hidden {
+    opacity: 0;
+    transition: 0.6s;
+	font-size: 0.2em;
+	height: 4px;
+}
+.hidden:hover {
+    opacity: 1;
+	font-size: 1em;
+	height:100%;
+}*/
+{}

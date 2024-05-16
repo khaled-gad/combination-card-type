@@ -1,0 +1,67 @@
+<!-- if no picture available render the audio -->
+{{^Picture}}
+	<style>
+		.audio {
+			display: block !important;
+		}
+	</style>
+{{/Picture}}
+<div id="word">
+	{{#wordDictionaryForm}}
+	{{Expression}} - ({{reading}})
+	{{/wordDictionaryForm}}
+
+	{{^wordDictionaryForm}}
+	{{Expression}} - ({{reading}})
+	{{/wordDictionaryForm}}
+</div>
+<br>
+<div style='font-family: OpenSansLight; font-size: 20px;'>{{definition}}</div>
+
+<br><br><br>
+
+</div>
+<!-- picture and audio -->
+<div>
+		{{#wordAudio}}
+			<span class="audio">{{wordAudio}}</span>
+			<span class="audio sentenceAudio">{{SentenceAudio}}</span>
+		{{/wordAudio}}
+
+		{{^wordAudio}}
+			<span class="audio">{{SentenceAudio}}</span>
+		{{/wordAudio}}
+
+		{{Picture}}
+	</div>
+
+<br>
+<!-- sentence again for kanjihover use -->
+<div id="kanjiHover">
+	<div id="sentence" class="hidden">
+		{{edit:Sentence}}
+	</div>
+</div>
+	
+
+<!-- freq tag -->
+{{#frequency}}
+		<div id="freq">
+		Freq	<span id="freqNumber">{{frequency}}</span>
+		</div>
+{{/frequency}}
+
+<div id="pitchGraph">
+    {{pitchAccent}}
+</div>
+
+<script>
+    var sentence = document.getElementById("sentence");
+    if (sentence) {
+        sentence.innerHTML = sentence.innerHTML.replace("{{Expression}}", '<span class="highlight">{{Expression}}</span>');
+    }
+</script>
+
+
+<script src ="_kanjiHover.js"></script>
+
